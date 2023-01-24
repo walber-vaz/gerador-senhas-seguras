@@ -1,19 +1,19 @@
-# Projeto gerador de senhas seguras
+# 🚀 Projeto gerador de senhas seguras
 
 ![print-home](https://github.com/walber-vaz/gerador-senhas-seguras/raw/main/assets/img/print-home.png)
 
-## Tecnologias usadas
+## 👨‍💻 Tecnologias usadas
 
-- html5
-- Javascript
-- css3
-- node
+- ✅ html5
+- ✅ Javascript
+- ✅ css3
+- ✅ node
 
-## Dependências
+## 🔃 Dependências
 
-node >= 16.x
+🔥 node >= 16.x
 
-## Testa app
+## 🧪 Testa app
 
 ```sh
 git clone https://github.com/walber-vaz/gerador-senhas-seguras.git
@@ -25,16 +25,16 @@ npm i
 npm start
 ```
 
-## Funcionalidades
+## 📢 Funcionalidades
 
 Gera senha personalizadas usando números, letras maiúsculas e caracteres especiais.
 
 Pode gerar senhas no mínimo 6 máximo 64 caráteres
 
-## License
+## ⚠️ License
 
-[MIT]()
+[MIT](https://github.com/walber-vaz/gerador-senhas-seguras/blob/main/LICENSE)
 
-## Author
+## 💡 Author
 
 [Walber Vaz](https://www.linkedin.com/in/walber-vaz/)
