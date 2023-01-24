@@ -8,6 +8,22 @@
 - Javascript
 - css3
 
+## Dependência
+
+node >= 16.x
+
+## Como testa
+
+```sh
+git clone https://github.com/walber-vaz/gerador-senhas-seguras.git
+
+cd gerador-senhas-seguras
+
+npm install
+
+npm start
+```
+
 ## Funcionalidades
 
 Gera senha personalizadas usando números, letras maiúsculas e caracteres especiais.
