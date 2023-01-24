@@ -1,6 +1,6 @@
 # 🚀 Projeto gerador de senhas seguras
 
-![print-home](https://github.com/walber-vaz/gerador-senhas-seguras/raw/main/assets/img/gif-app.png)
+![print-home](https://github.com/walber-vaz/gerador-senhas-seguras/raw/main/assets/img/gif-app.gif)
 
 ## 👨‍💻 Tecnologias usadas
 
