@@ -1,0 +1,352 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.hero {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 3.4rem;
+}
+
+.hero p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.hero span {
+  font-weight: 900;
+  color: #ff6b6b;
+  text-decoration: underline;
+  margin-left: 0.8rem;
+}
+
+.inputs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs input[type="text"] {
+  width: 100%;
+  height: 5rem;
+  /* border: none; */
+  border: 0.2rem solid #ddd;
+  background-color: transparent;
+  border-top-left-radius: 0.5rem;
+  border-right: none;
+  border-bottom: none;
+  padding: 0 1rem;
+  font-size: 3rem;
+  text-align: center;
+  outline: none;
+  font-weight: 900;
+}
+
+.inputs input[type="text"].font-sm {
+  font-size: 2.5rem;
+}
+
+.inputs input[type="text"].font-md {
+  font-size: 2rem;
+}
+
+.inputs input[type="text"].font-xs {
+  font-size: 1.5rem;
+}
+
+.inputs .personalizar-password {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs .box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs .box i {
+  font-size: 2.2rem;
+  color: #ff6b6b;
+}
+
+.inputs .box .btn-copy {
+  width: 5rem;
+  height: 5rem;
+  border: 0.2rem solid #ddd;
+  background-color: transparent;
+  border-top-right-radius: 0.5rem;
+  border-left: none;
+  border-bottom: none;
+  padding: 0 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.4s;
+  color: #ff6b6b;
+  font-weight: 900;
+  outline: none;
+}
+
+.inputs .box .btn-gen {
+  width: 5rem;
+  height: 5rem;
+  /* border: none; */
+  border: 0.2rem solid #ddd;
+  background-color: transparent;
+  border-top: 0.2rem solid #ddd;
+  border-bottom: 0.2rem solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 0 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.4s;
+  color: #ff6b6b;
+  font-weight: 900;
+  outline: none;
+}
+
+.inputs .barra-check, .check-sec {
+  background-color: #ddd;
+  width: 100%;
+  display: flex;
+  height: 0.5rem;
+  border-bottom-left-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+}
+
+.inputs .check-sec {
+  transition: all 0.2s;
+}
+
+.inputs .check-sec.completed {
+  border-top-right-radius: 0;
+}
+
+.inputs .check-sec.critical {
+  background-color: #eb5757;
+}
+
+.inputs .check-sec.warning {
+  background-color: #f2c94c;
+}
+
+.inputs .check-sec.success {
+  background-color: #27ae60;
+}
+
+.personalizar-password {
+  width: 100%;
+  text-align: center;
+}
+
+.personalizar-password h2 {
+  margin-bottom: 2rem;
+}
+
+.box-personalizar input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 1rem;
+  background-color: #ddd;
+  width: 80%;
+  outline: none;
+  border-radius: 0.5rem;
+  transition: opacity 0.2s;
+  margin-bottom: 2.5rem;
+  margin-top: 1.4rem;
+}
+
+.box-personalizar input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.box-personalizar input[type="range"]::-moz-range-thumb {
+  width: 2rem;
+  height: 2rem;
+  background-color: #ff6b6b;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.btns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btns button {
+  width: 20rem;
+  background-color: #ff6b6b;
+  height: 5rem;
+  border: 0.2rem solid #ff6b6b;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.4s;
+  color: #f8f8f8;
+  font-weight: 900;
+}
+
+.btns button:hover {
+  background-color: transparent;
+  color: #ff6b6b;
+}
+
+.btns button:active {
+  background-color: #aaa;
+}
+
+.config {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  padding-left: 2.4rem;
+  margin: 1rem 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  position: absolute;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-container .check-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  width: 2rem;
+  background-color: #ddd;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.checkbox-container:hover input ~ .check-mark {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .check-mark {
+  background-color: #ff6b6b;
+}
+
+.checkbox-container .check-mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 10px;
+  border: solid #f8f8f8;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .check-mark:after {
+  display: block;
+}
+
+@media only screen and (max-width: 480px) {
+  .hero h1 {
+    flex-wrap: wrap;
+  }
+
+  .btns {
+    flex-direction: column;
+  }
+
+  .btns button {
+    width: 100%;
+  }
+
+  .inputs input[type="text"] {
+    font-size: 2rem;
+  }
+
+  .inputs input[type="text"].font-sm {
+    font-size: 1.8rem;
+  }
+  
+  .inputs input[type="text"].font-md {
+    font-size: 1.6rem;
+  }
+  
+  .inputs input[type="text"].font-xs {
+    font-size: 1.4rem;
+  }
+}

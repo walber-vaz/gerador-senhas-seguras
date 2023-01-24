@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de senha</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <h1>Gerador de <span>senha</span></h1>
+      <p>Utilize o nosso gerador online para criar uma senha forte e segura</p>    
+    </header>
+    <section class="inputs">
+      <div class="box">
+        <input type="text" name="password" id="password" data-js="input-password">
+        <button class="btn-gen" data-js="btn-gen"><i class="bi bi-arrow-clockwise"></i></button>
+        <button class="btn-copy" data-js="btn-copy"><i class="bi bi-clipboard"></i></button>
+      </div>
+      <div class="barra-check" style="width: 100%;">
+        <div class="check-sec" data-js="check-security" ></div>
+      </div>
+    </section>
+    <section class="personalizar-password">
+      <h2>Personalizar</h2>
+      <div class="box-personalizar">
+        <h3>Tamanho: <span data-js="length-password">16</span></h3>
+        <input type="range" name="range" id="range" value="16" max="64" min="6" data-js="input-range" />
+      </div>
+      <div class="config">
+        <label class="checkbox-container">
+          <span class="text">Maiúsculas</span>
+          <input type="checkbox" data-js="up-check" checked />
+          <span class="check-mark"></span>
+        </label>
+        <label class="checkbox-container">
+          <span class="text">Números</span>
+          <input type="checkbox" data-js="num-check" checked />
+          <span class="check-mark"></span>
+        </label>
+        <label class="checkbox-container">
+          <span class="text">Símbolos</span>
+          <input type="checkbox" data-js="sym-check" checked />
+          <span class="check-mark"></span>
+        </label>
+      </div>
+    </section>
+    <section class="btns">
+      <button type="button" data-js="btn">Gerar senha <i class="bi bi-arrow-clockwise"></i></button>
+      <button type="button" data-js="copy-password">Copiar senha <i class="bi bi-clipboard"></i></button>
+    </section>
+  </main>
+</body>
+</html>
