@@ -7,6 +7,23 @@
 - html5
 - Javascript
 - css3
+- node
+
+## Dependências
+
+node >= 16.x
+
+## Testa app
+
+```sh
+git clone https://github.com/walber-vaz/gerador-senhas-seguras.git
+
+cd gerador-senhas-seguras
+
+npm i
+# Start do projeto http://localhost:3333
+npm start
+```
 
 ## Funcionalidades
 

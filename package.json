@@ -1,0 +1,28 @@
+{
+  "name": "gerador-senhas-seguras",
+  "version": "0.0.1",
+  "description": "Gerador de senhas seguras",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=3333"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walber-vaz/gerador-senhas-seguras.git"
+  },
+  "keywords": [
+    "gerador",
+    "de",
+    "senha",
+    "app"
+  ],
+  "author": "Walber Vaz <wvs.walber@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/walber-vaz/gerador-senhas-seguras/issues"
+  },
+  "homepage": "https://github.com/walber-vaz/gerador-senhas-seguras#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
