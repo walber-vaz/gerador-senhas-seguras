@@ -152,7 +152,8 @@ body {
   outline: none;
 }
 
-.inputs .barra-check, .check-sec {
+.inputs .barra-check,
+.check-sec {
   background-color: #ddd;
   width: 100%;
   display: flex;
@@ -341,12 +342,13 @@ body {
   .inputs input[type="text"].font-sm {
     font-size: 1.8rem;
   }
-  
+
   .inputs input[type="text"].font-md {
     font-size: 1.6rem;
   }
-  
+
   .inputs input[type="text"].font-xs {
     font-size: 1.4rem;
   }
 }
+
