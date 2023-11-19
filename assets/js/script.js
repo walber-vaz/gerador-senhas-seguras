@@ -43,22 +43,13 @@ const calculateQuantity = () => {
     (passwordLength / 64) * 100 * 0.25 +
       (upCheck.checked ? 15 : 0) +
       (numCheck.checked ? 25 : 0) +
-      (symCheck.checked ? 35 : 0),
+      (symCheck.checked ? 35 : 0)
   );
   checkSec.style.width = `${percentage}%`;
-  if (percentage >= 69) {
-    checkSec.classList.remove("critical");
-    checkSec.classList.remove("warning");
-    checkSec.classList.add("success");
-  } else if (percentage >= 50) {
-    checkSec.classList.remove("critical");
-    checkSec.classList.remove("success");
-    checkSec.classList.add("warning");
-  } else {
-    checkSec.classList.remove("warning");
-    checkSec.classList.remove("success");
-    checkSec.classList.add("critical");
-  }
+  checkSec.classList.remove("critical", "warning", "success");
+  checkSec.classList.add(
+    percentage >= 69 ? "success" : percentage >= 50 ? "warning" : "critical"
+  );
 };
 
 const calculateFontSize = () => {
