@@ -13,25 +13,30 @@ const checkSec = document.querySelector('[data-js="check-security"]');
 let passwordLength = 16;
 
 const generationPassword = () => {
-  let chars = "abcdefghijklmnopqrstuvwxyz";
-  const upcaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const numbersChars = "0123456789";
-  const symbolsChars = "!@#$%&*()_+[]{};:.,?/|";
+  const chars = [];
+  const charSet = new Set();
 
   if (upCheck.checked) {
-    chars += upcaseChars;
+    chars.push(...'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    charSet.add('A');
   }
   if (numCheck.checked) {
-    chars += numbersChars;
+    chars.push(...'0123456789');
+    charSet.add('0');
   }
   if (symCheck.checked) {
-    chars += symbolsChars;
+    chars.push(...'!@#$%&*()_+[]{};:.,?/|');
+    charSet.add('!');
   }
+  chars.push(...'abcdefghijklmnopqrstuvwxyz');
 
-  let password = "";
+  let password = '';
   for (let i = 0; i < passwordLength; i++) {
-    const random = Math.floor(Math.random() * chars.length);
-    password += chars.charAt(random + 1);
+    let random;
+    do {
+      random = chars[Math.floor(Math.random() * chars.length)];
+    } while (charSet.has(random) && charSet.size === passwordLength);
+    password += random;
   }
   input.value = password;
   calculateQuantity();
@@ -39,38 +44,43 @@ const generationPassword = () => {
 };
 
 const calculateQuantity = () => {
-  const percentage = Math.round(
-    (passwordLength / 64) * 100 * 0.25 +
-      (upCheck.checked ? 15 : 0) +
-      (numCheck.checked ? 25 : 0) +
-      (symCheck.checked ? 35 : 0)
-  );
+  const hasUpper = upCheck.checked;
+  const hasNumber = numCheck.checked;
+  const hasSymbol = symCheck.checked;
+
+  const basePercentage = passwordLength / 64 * 0.25;
+  const baseBonus = (hasUpper ? 15 : 0) + (hasNumber ? 25 : 0) + (hasSymbol ? 35 : 0);
+  
+  const percentage = Math.round(basePercentage + baseBonus);
+
   checkSec.style.width = `${percentage}%`;
+
   checkSec.classList.remove("critical", "warning", "success");
-  checkSec.classList.add(
-    percentage >= 69 ? "success" : percentage >= 50 ? "warning" : "critical"
-  );
+  let classToAdd;
+  if (percentage >= 69) {
+    classToAdd = "success";
+  } else if (percentage >= 50) {
+    classToAdd = "warning";
+  } else {
+    classToAdd = "critical";
+  }
+  checkSec.classList.add(classToAdd);
 };
 
 const calculateFontSize = () => {
+  const fontClasses = ["font-xs", "font-sm", "font-md"];
+
+  fontClasses.forEach(className => input.classList.remove(className));
+
   if (passwordLength >= 45) {
-    input.classList.remove("font-sm");
-    input.classList.remove("font-md");
     input.classList.add("font-xs");
   } else if (passwordLength >= 32) {
-    input.classList.remove("font-sm");
     input.classList.add("font-md");
-    input.classList.remove("font-xs");
   } else if (passwordLength >= 22) {
     input.classList.add("font-sm");
-    input.classList.remove("font-md");
-    input.classList.remove("font-xs");
-  } else {
-    input.classList.remove("font-sm");
-    input.classList.remove("font-md");
-    input.classList.remove("font-xs");
   }
 };
+
 
 const genRangePassword = () => {
   passwordLength = range.value;
@@ -94,4 +104,4 @@ numCheck.addEventListener("click", generationPassword);
 upCheck.addEventListener("click", generationPassword);
 symCheck.addEventListener("click", generationPassword);
 
-window.onload = generationPassword();
+window.onload = generationPassword;
