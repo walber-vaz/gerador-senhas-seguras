@@ -12,38 +12,36 @@ const checkSec = document.querySelector('[data-js="check-security"]');
 
 let passwordLength = 16;
 
-const generationPassword = () => {
+const getAllowedChars = () => {
   const chars = [];
-  const charSet = new Set();
-
-  if (upCheck.checked) {
-    chars.push(...'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    charSet.add('A');
-  }
-  if (numCheck.checked) {
-    chars.push(...'0123456789');
-    charSet.add('0');
-  }
-  if (symCheck.checked) {
-    chars.push(...'!@#$%&*()_+[]{};:.,?/|');
-    charSet.add('!');
-  }
+  if (upCheck.checked) chars.push(...'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+  if (numCheck.checked) chars.push(...'0123456789');
+  if (symCheck.checked) chars.push(...'!@#$%&*()_+[]{};:.,?/|');
   chars.push(...'abcdefghijklmnopqrstuvwxyz');
+  return chars;
+};
 
+const generatePassword = (chars) => {
   let password = '';
   for (let i = 0; i < passwordLength; i++) {
-    let random;
-    do {
-      random = chars[Math.floor(Math.random() * chars.length)];
-    } while (charSet.has(random) && charSet.size === passwordLength);
-    password += random;
+    password += chars[Math.floor(Math.random() * chars.length)];
   }
+  return password;
+};
+
+const updatePasswordInput = (password) => {
   input.value = password;
   calculateQuantity();
   calculateFontSize();
 };
 
-const calculateQuantity = () => {
+const generationPassword = () => {
+  const chars = getAllowedChars();
+  const password = generatePassword(chars);
+  updatePasswordInput(password);
+};
+
+const calculatePercentage = () => {
   const hasUpper = upCheck.checked;
   const hasNumber = numCheck.checked;
   const hasSymbol = symCheck.checked;
@@ -51,11 +49,13 @@ const calculateQuantity = () => {
   const basePercentage = passwordLength / 64 * 0.25;
   const baseBonus = (hasUpper ? 15 : 0) + (hasNumber ? 25 : 0) + (hasSymbol ? 35 : 0);
   
-  const percentage = Math.round(basePercentage + baseBonus);
+  return Math.round(basePercentage + baseBonus);
+};
 
+const updateSecurityIndicator = (percentage) => {
   checkSec.style.width = `${percentage}%`;
-
   checkSec.classList.remove("critical", "warning", "success");
+
   let classToAdd;
   if (percentage >= 69) {
     classToAdd = "success";
@@ -67,9 +67,13 @@ const calculateQuantity = () => {
   checkSec.classList.add(classToAdd);
 };
 
-const calculateFontSize = () => {
-  const fontClasses = ["font-xs", "font-sm", "font-md"];
+const calculateQuantity = () => {
+  const percentage = calculatePercentage();
+  updateSecurityIndicator(percentage);
+};
 
+const updateFontSize = () => {
+  const fontClasses = ["font-xs", "font-sm", "font-md"];
   fontClasses.forEach(className => input.classList.remove(className));
 
   if (passwordLength >= 45) {
@@ -81,6 +85,9 @@ const calculateFontSize = () => {
   }
 };
 
+const calculateFontSize = () => {
+  updateFontSize();
+};
 
 const genRangePassword = () => {
   passwordLength = range.value;
@@ -95,11 +102,9 @@ const copy = () => {
 
 range.addEventListener("input", genRangePassword);
 btn.addEventListener("click", generationPassword);
-
 btnCopy.addEventListener("click", copy);
 btnGen.addEventListener("click", genRangePassword);
 copyPassword.addEventListener("click", copy);
-
 numCheck.addEventListener("click", generationPassword);
 upCheck.addEventListener("click", generationPassword);
 symCheck.addEventListener("click", generationPassword);
